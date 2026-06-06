@@ -94,11 +94,11 @@ a { color: inherit; text-decoration: none; }
 
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-mark {
-    font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem;
-    letter-spacing: 0.04em; color: #fff;
+    font-family: var(--font-serif); font-weight: 700; font-size: 1rem;
+    letter-spacing: 0; color: #fff;
     background: var(--navy-800); width: 40px; height: 40px;
     display: grid; place-items: center; border-radius: 9px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-sm); text-indent: 0.04em;
 }
 .brand-name {
     font-weight: 600; font-size: 0.95rem; color: var(--ink);
@@ -239,15 +239,21 @@ a { color: inherit; text-decoration: none; }
             mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 .marquee-track {
-    display: flex; align-items: center; gap: 28px; white-space: nowrap;
-    animation: marquee 34s linear infinite; width: max-content;
+    display: flex; align-items: center; width: max-content;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
 }
-.marquee-track span {
+.marquee-group {
+    display: flex; align-items: center; gap: 28px;
+    padding-right: 28px; white-space: nowrap;
+}
+.marquee-group span {
     font-family: var(--font-serif); font-size: 1.05rem; color: var(--ink-mute);
     letter-spacing: 0.01em;
 }
-.marquee-track span:nth-child(even) { color: var(--accent); }
-@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-group span:nth-child(even) { color: var(--accent); }
+.hero-marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-25%); } }
 
 /* ---------- Sections ---------- */
 .section { padding: 120px 0; }
