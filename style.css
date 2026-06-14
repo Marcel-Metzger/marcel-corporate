@@ -130,6 +130,7 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-link-cta::after { display: none; }
 .nav-link-cta:hover { background: var(--navy-700); color: #fff; transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.nav-link-cta.active { color: #fff; }
 
 .nav-toggle {
     display: none; flex-direction: column; gap: 5px; background: none;
